@@ -57,6 +57,7 @@
 									<li class="nav-item active"><a class="nav-link" href="{{ route('login') }}">Login</a></li>
 								</ul>
 							</li>
+							
 						</ul>
 						<ul class="nav navbar-nav navbar-right">
 							<li class="nav-item"><a href="#" class="cart"><span class="ti-bag"></span></a></li>
