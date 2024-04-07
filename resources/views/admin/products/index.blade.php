@@ -20,6 +20,7 @@
                             <th scope="col">Description</th>
                             <th scope="col">Quantité en Stock</th>
                             <th scope="col">Taille</th>
+                            <th scope="col">Image</th>
                             <th scope="col">Catégorie</th>
                             <th scope="col">Marque</th>
                             <th scope="col" class="text-end">Actions</th>
@@ -34,12 +35,21 @@
                             <td>{{ $product->description_product }}</td>
                             <td>{{ $product->stock_quantity }}</td>
                             <td>{{ $product->size_product }}</td>
-                            <td>{{ $product->category->name_category ?? 'N/A' }}</td> <!-- Suppose que vous avez un attribut 'name' dans le modèle Category -->
-                            <td>{{ $product->brand->name_brand ?? 'N/A' }}</td> <!-- Suppose que vous avez un attribut 'name' dans le modèle Brand -->
+                            <td>
+                                <img src="{{ asset($product->picture) }}" alt="image du produit" width="100">
+                            </td>
+
+                            <td>{{ $product->category->name_category ?? 'N/A' }}</td>
+                            <!-- Suppose que vous avez un attribut 'name' dans le modèle Category -->
+                            <td>{{ $product->brand->name_brand ?? 'N/A' }}</td>
+                            <!-- Suppose que vous avez un attribut 'name' dans le modèle Brand -->
                             <td class="text-end">
-                                <a href="{{ route('products.show', $product->id) }}" class="btn btn-primary btn-sm">Voir</a>
-                                <a href="{{ route('products.edit', $product->id) }}" class="btn btn-warning btn-sm">Modifier</a>
-                                <form action="{{ route('products.destroy', $product->id) }}" method="POST" style="display: inline;">
+                                <a href="{{ route('products.show', $product->id) }}"
+                                    class="btn btn-primary btn-sm">Voir</a>
+                                <a href="{{ route('products.edit', $product->id) }}"
+                                    class="btn btn-warning btn-sm">Modifier</a>
+                                <form action="{{ route('products.destroy', $product->id) }}" method="POST"
+                                    style="display: inline;">
                                     @csrf
                                     @method('DELETE')
                                     <button type="submit" class="btn btn-danger btn-sm">Supprimer</button>

@@ -64,6 +64,12 @@ class ProductController extends Controller
         if (isset($validatedData['brand_id'])) {
             $product->brand_id = $validatedData['brand_id'];
         }
+        if ($request->hasFile('picture')) {
+            $filename = $request->file('picture')->getClientOriginalName();
+            // Assurez-vous que le dossier 'public_admin/img' existe déjà dans 'public'
+            $request->file('picture')->move(public_path('public_admin/img'), $filename);
+            $product->picture = 'public_admin/img/' . $filename;
+        }
 
         $product->save(); // Sauvegarde du produit dans la base de données
 

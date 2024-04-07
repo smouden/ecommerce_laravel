@@ -7,7 +7,7 @@
         <div class="col-sm-12 col-md-8 col-lg-6">
             <div class="bg-secondary rounded h-100 p-4">
                 <h6 class="mb-4">Ajouter un produit</h6>
-                <form action="{{ route('products.store') }}" method="POST">
+                <form action="{{ route('products.store') }}" method="POST" enctype="multipart/form-data">
                     @csrf
                     <div class="mb-3">
                         <label for="title_product" class="form-label">Titre du produit</label>
@@ -19,7 +19,8 @@
                     </div>
                     <div class="mb-3">
                         <label for="description_product" class="form-label">Description du produit</label>
-                        <textarea class="form-control" id="description_product" name="description_product" maxlength="500"></textarea>
+                        <textarea class="form-control" id="description_product" name="description_product"
+                            maxlength="500"></textarea>
                     </div>
                     <div class="mb-3">
                         <label for="stock_quantity" class="form-label">Quantité en stock</label>
@@ -30,10 +31,14 @@
                         <input type="text" class="form-control" id="size_product" name="size_product" maxlength="50">
                     </div>
                     <div class="mb-3">
+                        <label for="picture" class="form-label">Image du produit</label>
+                        <input type="file" class="form-control" id="picture" name="picture">
+                    </div>
+                    <div class="mb-3">
                         <label for="category_id" class="form-label">Catégorie</label>
                         <select class="form-select" id="category_id" name="category_id">
                             @foreach($categories as $category)
-                                <option value="{{ $category->id }}">{{ $category->name_category }}</option>
+                            <option value="{{ $category->id }}">{{ $category->name_category }}</option>
                             @endforeach
                         </select>
                     </div>
@@ -41,7 +46,7 @@
                         <label for="brand_id" class="form-label">Marque</label>
                         <select class="form-select" id="brand_id" name="brand_id">
                             @foreach($brands as $brand)
-                                <option value="{{ $brand->id }}">{{ $brand->name_brand }}</option>
+                            <option value="{{ $brand->id }}">{{ $brand->name_brand }}</option>
                             @endforeach
                         </select>
                     </div>
