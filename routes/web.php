@@ -28,6 +28,11 @@ Route::middleware('auth')->group(function () {
 });
 Route::get('/home', [HomeController::class, 'index'])->name('home');
 Route::get('/shop', [ShopController::class, 'index'])->name('shop');
+
+Route::get('/shop/{id}', [ShopController::class, 'showCategory'])->name('category.show');
+
+
+
 Route::middleware(['admin'])->prefix('admin')->group(function () {
     Route::get('/', [DashboardController::class, 'index'])->name('dashboard');
     Route::resource('categories', CategoryController::class);
