@@ -8,6 +8,7 @@ use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\BrandController;
 use App\Http\Controllers\ProductController;
+use App\Http\Controllers\Shopping_CartController;
 
 Route::get('/', function () {
     return view('welcome');
@@ -30,8 +31,7 @@ Route::get('/home', [HomeController::class, 'index'])->name('home');
 Route::get('/shop', [ShopController::class, 'index'])->name('shop');
 
 Route::get('/shop/{id}', [ShopController::class, 'showCategory'])->name('category.show');
-
-
+Route::get('/cart', [Shopping_CartController::class, 'index'])->name('cart');
 
 Route::middleware(['admin'])->prefix('admin')->group(function () {
     Route::get('/', [DashboardController::class, 'index'])->name('dashboard');
