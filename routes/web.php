@@ -8,7 +8,7 @@ use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\BrandController;
 use App\Http\Controllers\ProductController;
-use App\Http\Controllers\Shopping_CartController;
+use App\Http\Controllers\CartController;
 
 Route::get('/', function () {
     return view('welcome');
@@ -31,7 +31,16 @@ Route::get('/home', [HomeController::class, 'index'])->name('home');
 Route::get('/shop', [ShopController::class, 'index'])->name('shop');
 
 Route::get('/shop/{id}', [ShopController::class, 'showCategory'])->name('category.show');
-Route::get('/cart', [Shopping_CartController::class, 'index'])->name('cart');
+
+
+
+
+
+
+Route::get('/add-to-cart/{productId}', [CartController::class, 'addToCart'])->name('cart.add');
+Route::get('/cart', [CartController::class, 'showCart'])->name('cart')->middleware('auth');
+Route::post('/update-cart', [CartController::class, 'updateCart'])->name('cart.update');
+
 
 Route::middleware(['admin'])->prefix('admin')->group(function () {
     Route::get('/', [DashboardController::class, 'index'])->name('dashboard');

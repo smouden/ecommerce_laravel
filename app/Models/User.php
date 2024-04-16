@@ -44,4 +44,16 @@ class User extends Authenticatable
             'password' => 'hashed',
         ];
     }
+
+    public function carts()
+    {
+        return $this->hasMany(Cart::class);
+    }
+
+    public function getShoppingCartTotal()
+    {
+        // Cette fonction suppose que vous avez une relation 'carts' définie dans User qui renvoie tous les éléments du panier de l'utilisateur.
+        return $this->carts()->sum('total_price_product');
+    }
+
 }

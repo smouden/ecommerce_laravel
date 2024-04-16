@@ -110,35 +110,36 @@
 			<!-- End Filter Bar -->
 			<!-- Start Best Seller -->
 			@if (isset($category) && $category->products)
-        <section class="lattest-product-area pb-40 category-list">
-            <div class="row">
-                @foreach ($category->products as $product)
-                    <!-- single product -->
-                    <div class="col-lg-4 col-md-6">
-                        <div class="single-product">
-                            <img class="img-fluid" src="{{ asset($product->picture) }}" alt="{{ $product->title_product }}">
-                            <div class="product-details">
-                                <h6>{{ $product->title_product }}</h6>
-                                <div class="price">
-                                    <h6>${{ $product->price_product }}</h6>
-                                </div>
-                                <div class="prd-bottom">
-                                    <a href="" class="social-info">
-                                        <span class="ti-bag"></span>
-                                        <p class="hover-text">add to bag</p>
-                                    </a>
-                                    <a href="" class="social-info">
-                                        <span class="lnr lnr-move"></span>
-                                        <p class="hover-text">view more</p>
-                                    </a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                @endforeach
-            </div>
-        </section>
-    @endif
+			<section class="lattest-product-area pb-40 category-list">
+				<div class="row">
+					@foreach ($category->products as $product)
+					<!-- single product -->
+					<div class="col-lg-4 col-md-6">
+						<div class="single-product">
+							<img class="img-fluid" src="{{ asset($product->picture) }}"
+								alt="{{ $product->title_product }}">
+							<div class="product-details">
+								<h6>{{ $product->title_product }}</h6>
+								<div class="price">
+									<h6>${{ $product->price_product }}</h6>
+								</div>
+								<div class="prd-bottom">
+									<a href="{{ route('cart.add', $product->id) }}" class="social-info">
+										<span class="ti-bag"></span>
+										<p class="hover-text">add to bag</p>
+									</a>
+									<a href="" class="social-info">
+										<span class="lnr lnr-move"></span>
+										<p class="hover-text">view more</p>
+									</a>
+								</div>
+							</div>
+						</div>
+					</div>
+					@endforeach
+				</div>
+			</section>
+			@endif
 
 			<!-- End Best Seller -->
 			<!-- Start Filter Bar -->
@@ -164,15 +165,15 @@
 		</div>
 	</div>
 </div>
- <br><br><br><br><br>
+<br><br><br><br><br>
 @endsection
 
 
 @push('custom_js')
 <script src="{{ asset('js/vendor/jquery-2.2.4.min.js') }}"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.11.0/umd/popper.min.js"
-    integrity="sha384-b/U6ypiBEHpOf/4+1nzFpr53nxSS+GLCkfwBdFNTxtclqqenISfwAzpKaMNFNmj4"
-    crossorigin="anonymous"></script>
+	integrity="sha384-b/U6ypiBEHpOf/4+1nzFpr53nxSS+GLCkfwBdFNTxtclqqenISfwAzpKaMNFNmj4"
+	crossorigin="anonymous"></script>
 <script src="{{ asset('js/vendor/bootstrap.min.js') }}"></script>
 <script src="{{ asset('js/jquery.ajaxchimp.min.js') }}"></script>
 <script src="{{ asset('js/jquery.nice-select.min.js') }}"></script>

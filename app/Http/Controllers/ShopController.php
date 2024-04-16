@@ -18,4 +18,7 @@ class ShopController extends Controller
         $category = Category::with('products')->findOrFail($id); // Utilisez 'with' pour le chargement précoce
         return view('shop', compact('category')); // 'shop' est la vue qui affiche les produits
     }
+
+    
+    
 }
