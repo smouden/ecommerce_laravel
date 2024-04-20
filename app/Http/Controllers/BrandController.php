@@ -76,7 +76,6 @@ class BrandController extends Controller
         $validatedData = $request->validate([
             'name_brand' => 'required|max:255', // Vous pouvez ajouter d'autres règles de validation si nécessaire
         ]);
-
         // Recherche de la brand par ID et mise à jour
         $brand = Brand::findOrFail($id);
         $brand->name_brand = $validatedData['name_brand']; // Assurez-vous que le nom de la colonne dans la base de données correspond

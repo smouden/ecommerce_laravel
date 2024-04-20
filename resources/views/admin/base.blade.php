@@ -65,6 +65,7 @@
                 <a href="{{ route('products.index') }}" class="nav-item nav-link active"><i class="fa fa-tachometer-alt me-2"></i> products </a>
                     <a href="{{ route('categories.index') }}" class="nav-item nav-link active"><i class="fa fa-tachometer-alt me-2"></i> categories</a>
                     <a href="{{ route('brands.index') }}" class="nav-item nav-link active"><i class="fa fa-tachometer-alt me-2"></i> brands</a>
+                    <a href="{{ route('orders.index') }}" class="nav-item nav-link active"><i class="fa fa-tachometer-alt me-2"></i> orders</a>
                 </div>
             </nav>
         </div>
