@@ -56,4 +56,10 @@ class User extends Authenticatable
         return $this->carts()->sum('total_price_product');
     }
 
+    public function orders()
+    {
+        return $this->hasMany(Order::class);
+    }
+
+
 }

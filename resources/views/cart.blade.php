@@ -53,14 +53,14 @@
                                 <td>
                                     <div class="media">
                                         <div class="d-flex flex-column align-items-center">
-                                            <p>{{ $cart->title_product_cart }}</p>
-                                            <img src="{{ asset($cart->picture_product_cart) }}" alt=""
+                                            <p>{{ $cart->product->title_product }}</p>
+                                            <img src="{{ asset($cart->product->picture) }}" alt=""
                                                 style="width: 150px; height: 100px;">
                                         </div>
                                     </div>
                                 </td>
                                 <td>
-                                    <h5>${{ number_format($cart->price_product_cart, 2) }}</h5>
+                                    <h5>${{ number_format($cart->product->price_product, 2) }}</h5>
                                 </td>
                                 <td>
                                     <input type="number" name="quantities[{{ $cart->id }}]"
@@ -84,7 +84,7 @@
                                 <h5>Shopping Cart Total</h5>
                             </td>
                             <td>
-                                <h5>${{ number_format(auth()->user()->getShoppingCartTotal(), 2) }}</h5>
+                                <h5>${{ number_format($shoppingCartTotal, 2) }}</h5>
                             </td>
                         </tr>
                         <tr class="out_button_area">
@@ -94,7 +94,7 @@
                             <td>
                                 <div class="checkout_btn_inner d-flex align-items-center">
                                     <a class="gray_btn" href="#">Continue Shopping</a>
-                                    <a class="primary-btn" href="#">Proceed to checkout</a>
+                                    <a class="primary-btn" href="{{ route('checkout') }}">Proceed to checkout</a>>
                                 </div>
                             </td>
                         </tr>

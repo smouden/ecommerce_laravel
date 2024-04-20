@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\CheckoutController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\ShopController;
 use Illuminate\Support\Facades\Route;
@@ -31,10 +32,9 @@ Route::get('/home', [HomeController::class, 'index'])->name('home');
 Route::get('/shop', [ShopController::class, 'index'])->name('shop');
 
 Route::get('/shop/{id}', [ShopController::class, 'showCategory'])->name('category.show');
-
-
-
-
+Route::get('/checkout', [CheckoutController::class, 'index'])->name('checkout');
+Route::post('/checkout', [CheckoutController::class, 'store'])->name('checkout.store');
+Route::get('/confirmation/{order}', [CheckoutController::class, 'confirm'])->name('checkout.confirm');
 
 
 Route::get('/add-to-cart/{productId}', [CartController::class, 'addToCart'])->name('cart.add');

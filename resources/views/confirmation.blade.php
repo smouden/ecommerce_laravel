@@ -18,16 +18,17 @@
     <title>Karma Shop</title>
 
     <!--
-            CSS
-            ============================================= -->
-    <link rel="stylesheet" href="css/linearicons.css">
-    <link rel="stylesheet" href="css/owl.carousel.css">
-    <link rel="stylesheet" href="css/themify-icons.css">
-    <link rel="stylesheet" href="css/font-awesome.min.css">
-    <link rel="stylesheet" href="css/nice-select.css">
-    <link rel="stylesheet" href="css/nouislider.min.css">
-    <link rel="stylesheet" href="css/bootstrap.css">
-    <link rel="stylesheet" href="css/main.css">
+		CSS
+		============================================= -->
+        <link rel="stylesheet" href="{{ asset('css/linearicons.css') }}">
+<link rel="stylesheet" href="{{ asset('css/owl.carousel.css') }}">
+<link rel="stylesheet" href="{{ asset('css/themify-icons.css') }}">
+<link rel="stylesheet" href="{{ asset('css/font-awesome.min.css') }}">
+<link rel="stylesheet" href="{{ asset('css/nice-select.css') }}">
+<link rel="stylesheet" href="{{ asset('css/nouislider.min.css') }}">
+<link rel="stylesheet" href="{{ asset('css/bootstrap.css') }}">
+<link rel="stylesheet" href="{{ asset('css/main.css') }}">
+
 </head>
 
 <body>
@@ -57,11 +58,11 @@
                                     <li class="nav-item"><a class="nav-link" href="category.html">Shop Category</a></li>
                                     <li class="nav-item"><a class="nav-link" href="single-product.html">Product
                                             Details</a></li>
-                                    <li class="nav-item active"><a class="nav-link" href="checkout.html">Product
-                                            Checkout</a></li>
-                                    <li class="nav-item"><a class="nav-link" href="cart.html">Shopping Cart</a></li>
-                                    <li class="nav-item"><a class="nav-link" href="confirmation.html">Confirmation</a>
+                                    <li class="nav-item"><a class="nav-link" href="checkout.html">Product Checkout</a>
                                     </li>
+                                    <li class="nav-item"><a class="nav-link" href="cart.html">Shopping Cart</a></li>
+                                    <li class="nav-item active"><a class="nav-link"
+                                            href="confirmation.html">Confirmation</a></li>
                                 </ul>
                             </li>
                             <li class="nav-item submenu dropdown">
@@ -111,10 +112,10 @@
         <div class="container">
             <div class="breadcrumb-banner d-flex flex-wrap align-items-center justify-content-end">
                 <div class="col-first">
-                    <h1>Checkout</h1>
+                    <h1>Confirmation</h1>
                     <nav class="d-flex align-items-center">
                         <a href="index.html">Home<span class="lnr lnr-arrow-right"></span></a>
-                        <a href="single-product.html">Checkout</a>
+                        <a href="category.html">Confirmation</a>
                     </nav>
                 </div>
             </div>
@@ -131,97 +132,153 @@
 
 
 
-    <!-- start make orders and show what we have in carts  -->
-    <br><br>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!--================Order Details Area =================-->
+<section class="order_details section_gap">
     <div class="container">
-        <div class="row">
-            <!-- Order form -->
-            <div class="col-lg-8">
-                <form action="{{ route('checkout.store') }}" method="post" class="needs-validation" novalidate>
-                    @csrf
-                    <div class="form-group">
-                        <label for="first">First name</label>
-                        <input type="text" class="form-control" id="first" name="firstname" placeholder="First name"
-                            required>
-                    </div>
-                    <div class="form-group">
-                        <label for="last">Last name</label>
-                        <input type="text" class="form-control" id="last" name="lastname" placeholder="Last name"
-                            required>
-                    </div>
-                    <div class="form-group">
-                        <label for="number">Phone number</label>
-                        <input type="text" class="form-control" id="number" name="phone_number"
-                            placeholder="Phone number" required>
-                    </div>
-                    <div class="form-group">
-                        <label for="email">Email address</label>
-                        <input type="email" class="form-control" id="email" name="email_address"
-                            placeholder="Email address" required>
-                    </div>
-                    <div class="form-group">
-                        <label for="country">Country</label>
-                        <select class="form-control" name="country" required>
-                            <option value="">Select a country</option>
-                            <option value="USA">USA</option>
-                            <option value="France">France</option>
-                            <option value="Spain">Spain</option>
-                        </select>
-                    </div>
-                    <div class="form-group">
-                        <label for="zip">Postal code</label>
-                        <input type="text" class="form-control" id="zip" name="postcode" placeholder="Postal code"
-                            required>
-                    </div>
-                    <div class="form-group">
-                        <label for="city">City</label>
-                        <input type="text" class="form-control" id="city" name="city" placeholder="City" required>
-                    </div>
-                    <div class="form-group">
-                        <label for="add1">Address</label>
-                        <input type="text" class="form-control" id="add1" name="adress_line" placeholder="Address"
-                            required>
-                    </div>
-                    <button type="submit" class="btn btn-primary">Confirm order</button>
-                </form>
-            </div>
-
-            <!-- Cart details -->
-            <div class="col-lg-4">
-                <div class="card border-primary mb-3">
-                    <div class="card-header bg-primary text-white">Your order</div>
-                    <div class="card-body">
-                        <h4 class="card-title">Cart details</h4>
-                        <ul class="list-group list-group-flush">
-                            <!-- Product list header -->
-                            <li class="list-group-item">Product <span class="float-right">Total</span></li>
-
-                            <!-- Dynamic elements of the cart -->
-                            @foreach ($cartItems as $item)
-                            <li class="list-group-item">
-                                {{ $item->product->title_product }} <!-- Product name -->
-                                <span class="middle">x {{ $item->quantity_product_cart }}</span> <!-- Quantity -->
-                                <span class="badge badge-secondary float-right">${{ $item->total_price_product }}</span>
-                                <!-- Total price -->
-                            </li>
-                            @endforeach
-
-                            <!-- Subtotal, shipping, and total -->
-                            <li class="list-group-item">Subtotal <span class="badge badge-primary float-right">${{
-                                    $subtotal }}</span></li>
-                            <li class="list-group-item">Shipping <span class="badge badge-warning float-right">${{
-                                    $shipping }}</span></li>
-                            <li class="list-group-item">Total <span class="badge badge-success float-right">${{ $total
-                                    }}</span></li>
-                        </ul>
-                    </div>
-                </div>
+        <h3 class="title_confirmation">Thank you. Your order has been received.</h3>
+        <div class="order_details_table">
+            <h2>Your ordered products</h2>
+            <div class="table-responsive">
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th scope="col">Product</th>
+                            <th scope="col">Quantity</th>
+                            <th scope="col">Unit Price</th>
+                            <th scope="col">Total</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach ($orderItems as $item)
+                        <tr>
+                            <td>
+                                <p>{{ $item->title_product_ordered }}</p>
+                            </td>
+                            <td>
+                                <h5>x {{ $item->quantity_product_comanded }}</h5>
+                            </td>
+                            <td>
+                                <p>${{ $item->price_product_ordered }}</p>
+                            </td>
+                            <td>
+                                <p>${{ $item->total_price_product_commanded }}</p>
+                            </td>
+                        </tr>
+                        @endforeach
+                        <tr>
+                            <td colspan="3" class="text-right">
+                                <strong>Total</strong>
+                            </td>
+                            <td>
+                                <strong>${{ $orderItems->sum('total_price_product_commanded') }}</strong>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
             </div>
         </div>
     </div>
-    <br><br>
+</section>
+<!--================End Order Details Area =================-->
 
-    <!-- end make orders and show what we have in carts  -->
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -245,8 +302,7 @@
                     <div class="single-footer-widget">
                         <h6>About Us</h6>
                         <p>
-                            Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor
-                            incididunt
+                            Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt
                             ut labore dolore
                             magna aliqua.
                         </p>
@@ -317,8 +373,7 @@
                 <p class="footer-text m-0">
                     <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
                     Copyright &copy;
-                    <script>document.write(new Date().getFullYear());</script> All rights reserved | This
-                    template is
+                    <script>document.write(new Date().getFullYear());</script> All rights reserved | This template is
                     made with <i class="fa fa-heart-o" aria-hidden="true"></i> by <a href="https://colorlib.com"
                         target="_blank">Colorlib</a>
                     <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
@@ -329,21 +384,24 @@
     <!-- End footer Area -->
 
 
-    <script src="js/vendor/jquery-2.2.4.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.11.0/umd/popper.min.js"
-        integrity="sha384-b/U6ypiBEHpOf/4+1nzFpr53nxSS+GLCkfwBdFNTxtclqqenISfwAzpKaMNFNmj4"
-        crossorigin="anonymous"></script>
-    <script src="js/vendor/bootstrap.min.js"></script>
-    <script src="js/jquery.ajaxchimp.min.js"></script>
-    <script src="js/jquery.nice-select.min.js"></script>
-    <script src="js/jquery.sticky.js"></script>
-    <script src="js/nouislider.min.js"></script>
-    <script src="js/jquery.magnific-popup.min.js"></script>
-    <script src="js/owl.carousel.min.js"></script>
-    <!--gmaps Js-->
-    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCjCGmQ0Uq4exrzdcL6rvxywDDOvfAu6eE"></script>
-    <script src="js/gmaps.min.js"></script>
-    <script src="js/main.js"></script>
+
+
+    <script src="{{ asset('js/vendor/jquery-2.2.4.min.js') }}"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.11.0/umd/popper.min.js"
+    integrity="sha384-b/U6ypiBEHpOf/4+1nzFpr53nxSS+GLCkfwBdFNTxtclqqenISfwAzpKaMNFNmj4"
+    crossorigin="anonymous"></script>
+<script src="{{ asset('js/vendor/bootstrap.min.js') }}"></script>
+<script src="{{ asset('js/jquery.ajaxchimp.min.js') }}"></script>
+<script src="{{ asset('js/jquery.nice-select.min.js') }}"></script>
+<script src="{{ asset('js/jquery.sticky.js') }}"></script>
+<script src="{{ asset('js/nouislider.min.js') }}"></script>
+<script src="{{ asset('js/jquery.magnific-popup.min.js') }}"></script>
+<script src="{{ asset('js/owl.carousel.min.js') }}"></script>
+<!--gmaps Js-->
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCjCGmQ0Uq4exrzdcL6rvxywDDOvfAu6eE"></script>
+<script src="{{ asset('js/gmaps.min.js') }}"></script>
+<script src="{{ asset('js/main.js') }}"></script>
+
 </body>
 
 </html>
