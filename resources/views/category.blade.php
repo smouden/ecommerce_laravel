@@ -10,7 +10,15 @@
 <link rel="stylesheet" href="{{ asset('css/bootstrap.css') }}">
 <link rel="stylesheet" href="{{ asset('css/main.css') }}">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css">
+<style>
+	.shift-left {
+		margin-left: 80px;
+		/* Ajustez cette valeur en fonction de la quantité de décalage souhaitée */
+	}
+	
 
+	
+</style>
 @endpush
 
 
@@ -34,87 +42,22 @@
 <!-- End Banner Area -->
 
 
+
+
 <div class="container">
 	<div class="row">
-		<div class="col-xl-3 col-lg-4 col-md-5">
-			<div class="sidebar-categories">
-				<div class="head">Products Filters</div>
-				<br>
-				<form action="#">
-					<ul>
-						<li class="filter-list"><input class="pixel-radio" type="radio" id="apple" name="brand"><label
-								for="apple"> Nike </label></li>
-						<li class="filter-list"><input class="pixel-radio" type="radio" id="asus" name="brand"><label
-								for="asus">Asus </label></li>
-					</ul>
-				</form>
-			</div>
-			<br>
-			<div class="sidebar-categories">
-				<div class="head">Productsss Filters</div>
-				<br>
-				<form action="#">
-					<ul>
-						<li class="filter-list"><input class="pixel-radio" type="radio" id="apple" name="brand"><label
-								for="apple"> Nike </label></li>
-						<li class="filter-list"><input class="pixel-radio" type="radio" id="asus" name="brand"><label
-								for="asus">Asus </label></li>
-					</ul>
-				</form>
-			</div>
-			<br>
-			<div class="sidebar-categories">
-				<div class="common-filter">
-					<div class="head">Price</div>
-					<div class="price-range-area">
-						<div id="price-range"></div>
-						<div class="value-wrapper d-flex">
-							<div class="price">Price:</div>
-							<span>$</span>
-							<div id="lower-value"></div>
-							<div class="to">to</div>
-							<span>$</span>
-							<div id="upper-value"></div>
-						</div>
-					</div>
-				</div>
-			</div>
-
-		</div>
-		<div class="col-xl-9 col-lg-8 col-md-7">
+		<div class="col-12">
 			<!-- Start Filter Bar -->
-			<div class="filter-bar d-flex flex-wrap align-items-center">
-				<div class="sorting">
-					<select>
-						<option value="1">Default sorting</option>
-						<option value="1">Default sorting</option>
-						<option value="1">Default sorting</option>
-					</select>
-				</div>
-				<div class="sorting mr-auto">
-					<select>
-						<option value="1">Show 12</option>
-						<option value="1">Show 12</option>
-						<option value="1">Show 12</option>
-					</select>
-				</div>
-				<div class="pagination">
-					<a href="#" class="prev-arrow"><i class="fa fa-long-arrow-left" aria-hidden="true"></i></a>
-					<a href="#" class="active">1</a>
-					<a href="#">2</a>
-					<a href="#">3</a>
-					<a href="#" class="dot-dot"><i class="fa fa-ellipsis-h" aria-hidden="true"></i></a>
-					<a href="#">6</a>
-					<a href="#" class="next-arrow"><i class="fa fa-long-arrow-right" aria-hidden="true"></i></a>
-				</div>
-			</div>
-			<!-- End Filter Bar -->
-			<!-- Start Best Seller -->
-			@if (isset($category) && $category->products)
-			<section class="lattest-product-area pb-40 category-list">
+			<!-- Début de la barre de filtre -->
+
+			<!-- Fin de la barre de filtre -->
+
+			<!-- Début du Meilleur Vendeur -->
+			@if (isset($category) && isset($products))
+			<section class="lattest-product-area pb-40 category-list shift-left">
 				<div class="row">
-					@foreach ($category->products as $product)
-					<!-- single product -->
+					@foreach ($products as $product)
+					<!-- produit individuel -->
 					<div class="col-lg-4 col-md-6">
 						<div class="single-product">
 							<img class="img-fluid" src="{{ asset($product->picture) }}"
@@ -142,16 +85,12 @@
 				</div>
 			</section>
 			@endif
+			<!-- Fin du Meilleur Vendeur -->
 
 			<!-- End Best Seller -->
 			<!-- Start Filter Bar -->
 			<div class="filter-bar d-flex flex-wrap align-items-center">
 				<div class="sorting mr-auto">
-					<select>
-						<option value="1">Show 12</option>
-						<option value="1">Show 12</option>
-						<option value="1">Show 12</option>
-					</select>
 				</div>
 				<div class="pagination">
 					<a href="#" class="prev-arrow"><i class="fa fa-long-arrow-left" aria-hidden="true"></i></a>

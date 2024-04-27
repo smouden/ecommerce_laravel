@@ -15,11 +15,14 @@ class CategoriesController extends Controller
 
     public function showCategory($id)
     {
-        $category = Category::with('products')->findOrFail($id); // Utilisez 'with' pour le chargement précoce
-        return view('category', compact('category')); // 'category' est la vue qui affiche les produits
+        // Récupère la catégorie avec pagination des produits
+        $category = Category::findOrFail($id);
+        $products = $category->products()->paginate(3); // 9 produits par page
+    
+        // Passez les produits paginés à la vue
+        return view('category', compact('category', 'products'));
     }
 
-    
 
 
 }
