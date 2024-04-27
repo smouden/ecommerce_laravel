@@ -34,6 +34,29 @@
                         <label for="picture" class="form-label">Image du produit</label>
                         <input type="file" class="form-control" id="picture" name="picture">
                     </div>
+                    <!-- ... on insere les trois derniers champs qu'on vient d'ajouter ... -->
+                    <div class="mb-3">
+                        <label for="gender" class="form-label">Sexe du produit</label>
+                        <select class="form-select" id="gender" name="gender">
+                            <option value="">Sélectionnez le sexe ciblé</option>
+                            <option value="1">Homme</option>
+                            <option value="2">Femme</option>
+                            <option value="3">Unisexe</option>
+                        </select>
+                    </div>
+                    <div class="mb-3">
+                        <label for="origin" class="form-label">Origine du produit</label>
+                        <input type="text" class="form-control" id="origin" name="origin">
+                    </div>
+                    <div class="mb-3">
+                        <label for="shipping_time" class="form-label">Délai de livraison</label>
+                        <input type="text" class="form-control" id="shipping_time" name="shipping_time">
+                    </div>
+                    <div class="mb-3">
+                        <label for="text_product" class="form-label">Texte sur le produit</label>
+                        <textarea class="form-control" id="text_product" name="text_product"></textarea>
+                    </div>
+                    <!-- fin d'inserer les nv champs  -->
                     <div class="mb-3">
                         <label for="category_id" class="form-label">Catégorie</label>
                         <select class="form-select" id="category_id" name="category_id">

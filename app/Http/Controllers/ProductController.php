@@ -42,31 +42,24 @@ class ProductController extends Controller
     {
         // Validation des données
         $validatedData = $request->validate([
-            'title_product' => 'required|max:20',
+            'title_product' => 'required|max:255', // max:255 au lieu de max:20 pour permettre des titres plus longs
             'price_product' => 'required|numeric',
             'description_product' => 'required|max:500',
             'stock_quantity' => 'required|integer',
             'size_product' => 'required|max:50',
-            'category_id' => 'required|exists:categories,id', // Assurez-vous que la catégorie existe
-            'brand_id' => 'nullable|exists:brands,id' // La marque est facultative, assurez-vous qu'elle existe si fournie
+            'category_id' => 'required|exists:categories,id',
+            'brand_id' => 'nullable|exists:brands,id',
+            'gender' => 'required|integer', // Validation pour le sexe du produit
+            'origin' => 'required|string|max:255', // Validation pour l'origine
+            'shipping_time' => 'required|string|max:255', // Validation pour le délai de livraison
+            'text_product' => 'required|string', // Validation pour le texte supplémentaire du produit
         ]);
 
         // Création du produit
-        $product = new Product;
-        $product->title_product = $validatedData['title_product'];
-        $product->price_product = $validatedData['price_product'];
-        $product->description_product = $validatedData['description_product'];
-        $product->stock_quantity = $validatedData['stock_quantity'];
-        $product->size_product = $validatedData['size_product'];
-        $product->category_id = $validatedData['category_id'];
+        $product = new Product($validatedData);
 
-        // Vérifier si brand_id est fourni et n'est pas null
-        if (isset($validatedData['brand_id'])) {
-            $product->brand_id = $validatedData['brand_id'];
-        }
         if ($request->hasFile('picture')) {
             $filename = $request->file('picture')->getClientOriginalName();
-            // Assurez-vous que le dossier 'public_admin/img' existe déjà dans 'public'
             $request->file('picture')->move(public_path('public_admin/img'), $filename);
             $product->picture = 'public_admin/img/' . $filename;
         }
@@ -111,36 +104,39 @@ class ProductController extends Controller
     {
         // Valider les données reçues
         $validatedData = $request->validate([
-            'title_product' => 'required|max:20',
+            'title_product' => 'required|max:255', // ajusté à 255 pour être cohérent avec les standards
             'price_product' => 'required|numeric',
             'description_product' => 'required|max:500',
             'stock_quantity' => 'required|integer',
             'size_product' => 'required|max:50',
             'category_id' => 'required|exists:categories,id',
-            'brand_id' => 'required|exists:brands,id'
+            'brand_id' => 'nullable|exists:brands,id', // 'nullable' si la marque peut être nulle
+            'gender' => 'required|integer',
+            'origin' => 'required|string|max:255',
+            'shipping_time' => 'required|string|max:255',
+            'text_product' => 'required|string',
         ]);
-    
+
         // Trouver le produit par ID
         $product = Product::findOrFail($id);
-    
+
         // Mettre à jour chaque champ manuellement
-        $product->title_product = $validatedData['title_product'];
-        $product->price_product = $validatedData['price_product'];
-        $product->description_product = $validatedData['description_product'];
-        $product->stock_quantity = $validatedData['stock_quantity'];
-        $product->size_product = $validatedData['size_product'];
-        $product->category_id = $validatedData['category_id'];
-        
-        if (isset($validatedData['brand_id'])) {
-            $product->brand_id = $validatedData['brand_id'];
+        $product->fill($validatedData);
+
+        // Gérer l'upload de l'image si elle est présente
+        if ($request->hasFile('picture')) {
+            $filename = $request->file('picture')->getClientOriginalName();
+            $request->file('picture')->move(public_path('public_admin/img'), $filename);
+            $product->picture = 'public_admin/img/' . $filename;
         }
-    
+
         $product->save(); // Sauvegarder les modifications
-    
+
         // Rediriger vers la liste des produits avec un message de succès
         return redirect()->route('products.index')->with('success', 'Produit mis à jour avec succès.');
     }
-    
+
+
 
     /**
      * Remove the specified resource from storage.

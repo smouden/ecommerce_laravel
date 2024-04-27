@@ -17,4 +17,18 @@ class Product extends Model
     {
         return $this->belongsTo(Brand::class);
     }
+
+    protected $fillable = [
+        'title_product',
+        'price_product',
+        'description_product',
+        'stock_quantity',
+        'size_product',
+        'category_id',
+        'brand_id',
+        'gender',
+        'origin',
+        'shipping_time',
+        'text_product',
+    ];
 }

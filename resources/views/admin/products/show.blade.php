@@ -31,6 +31,27 @@
 
                     <dt class="col-sm-4">Brand:</dt>
                     <dd class="col-sm-8">{{ $product->brand->name_brand ?? 'Not assigned' }}</dd>
+                    <dt class="col-sm-4">Gender:</dt>
+                    <dd class="col-sm-8">
+                        @if($product->gender === 1)
+                            Male
+                        @elseif($product->gender === 2)
+                            Female
+                        @elseif($product->gender === 3)
+                            Unisex
+                        @else
+                            Not specified
+                        @endif
+                    </dd>
+
+                    <dt class="col-sm-4">Origin:</dt>
+                    <dd class="col-sm-8">{{ $product->origin }}</dd>
+
+                    <dt class="col-sm-4">Shipping Time:</dt>
+                    <dd class="col-sm-8">{{ $product->shipping_time }}</dd>
+
+                    <dt class="col-sm-4">Additional Text:</dt>
+                    <dd class="col-sm-8">{{ $product->text_product }}</dd>
                 </dl>
                 <a href="{{ route('products.index') }}" class="btn btn-primary">Back to Products</a>
             </div>

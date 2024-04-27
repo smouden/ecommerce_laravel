@@ -12,6 +12,7 @@ use App\Http\Controllers\BrandController;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\CartController;
 use App\Http\Controllers\OrderController;
+use App\Http\Controllers\ShowProducts;
 
 Route::get('/', function () {
     return view('welcome');
@@ -33,6 +34,7 @@ Route::middleware('auth')->group(function () {
 Route::get('/home', [HomeController::class, 'index'])->name('home');
 Route::get('/category', [CategoriesController::class, 'index'])->name('category');
 Route::get('/category/{id}', [CategoriesController::class, 'showCategory'])->name('category.show');
+Route::get('/product/{id}', [ShowProducts::class, 'show'])->name('product.show');
 
 
 

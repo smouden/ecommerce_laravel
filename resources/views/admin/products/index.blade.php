@@ -36,9 +36,9 @@
                             <td>{{ $product->stock_quantity }}</td>
                             <td>{{ $product->size_product }}</td>
                             <td>
-                                <img src="{{ asset($product->picture) }}" alt="image du produit" width="100">
+                                <img src="{{ asset($product->picture) }}" alt="image du produit"
+                                    style="width: 100px !important; height: 60px !important;">
                             </td>
-
                             <td>{{ $product->category->name_category ?? 'N/A' }}</td>
                             <!-- Suppose que vous avez un attribut 'name' dans le modèle Category -->
                             <td>{{ $product->brand->name_brand ?? 'N/A' }}</td>

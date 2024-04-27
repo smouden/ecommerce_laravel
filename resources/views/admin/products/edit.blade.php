@@ -46,6 +46,33 @@
                             @endforeach
                         </select>
                     </div>
+                     <!-- Champ pour le sexe du produit -->
+                     <div class="mb-3">
+                        <label for="gender" class="form-label">Gender</label>
+                        <select class="form-select" id="gender" name="gender">
+                            <option value="1" {{ $product->gender == 1 ? 'selected' : '' }}>Male</option>
+                            <option value="2" {{ $product->gender == 2 ? 'selected' : '' }}>Female</option>
+                            <option value="3" {{ $product->gender == 3 ? 'selected' : '' }}>Unisex</option>
+                        </select>
+                    </div>
+
+                    <!-- Champ pour l'origine du produit -->
+                    <div class="mb-3">
+                        <label for="origin" class="form-label">Origin</label>
+                        <input type="text" class="form-control" id="origin" name="origin" value="{{ $product->origin }}">
+                    </div>
+
+                    <!-- Champ pour le délai de livraison -->
+                    <div class="mb-3">
+                        <label for="shipping_time" class="form-label">Shipping Time</label>
+                        <input type="text" class="form-control" id="shipping_time" name="shipping_time" value="{{ $product->shipping_time }}">
+                    </div>
+
+                    <!-- Champ pour le texte supplémentaire du produit -->
+                    <div class="mb-3">
+                        <label for="text_product" class="form-label">Additional Text</label>
+                        <textarea class="form-control" id="text_product" name="text_product">{{ $product->text_product }}</textarea>
+                    </div>
                     <button type="submit" class="btn btn-primary">Update</button>
                 </form>
             </div>
