@@ -3,7 +3,7 @@
 use App\Http\Controllers\CheckoutController;
 use App\Http\Controllers\HistoricController;
 use App\Http\Controllers\ProfileController;
-use App\Http\Controllers\ShopController;
+use App\Http\Controllers\CategoriesController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\DashboardController;
@@ -31,9 +31,8 @@ Route::middleware('auth')->group(function () {
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 });
 Route::get('/home', [HomeController::class, 'index'])->name('home');
-Route::get('/shop', [ShopController::class, 'index'])->name('shop');
-
-Route::get('/shop/{id}', [ShopController::class, 'showCategory'])->name('category.show');
+Route::get('/category', [CategoriesController::class, 'index'])->name('category');
+Route::get('/category/{id}', [CategoriesController::class, 'showCategory'])->name('category.show');
 
 
 
