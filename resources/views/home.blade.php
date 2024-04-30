@@ -36,50 +36,49 @@
 	</section>
 	<!-- End Banner Area -->
 
-	<!-- start product Area -->
-	<section class="owl-carousel active-product-area section_gap">
-		<!-- single product slide -->
-		<div class="single-product-slider">
-			<div class="container">
-				<div class="row justify-content-center">
-					<div class="col-lg-6 text-center">
-						<div class="section-title">
-							<h1>Latest Products</h1>
-							<p>Be the first to discover the latest products from our store. Don't miss the opportunity.</p>
-						</div>
-					</div>
-				</div>
-				<div class="row">
-					<!-- single product -->
-					<div class="col-lg-3 col-md-6">
-						<div class="single-product">
-							<img class="img-fluid" src="img/product/p1.jpg" alt="">
-							<div class="product-details">
-								<h6>addidas New Hammer sole
-									for Sports person</h6>
-								<div class="price">
-									<h6>$150.00</h6>
-								</div>
-								<div class="prd-bottom">
-
-									<a href="" class="social-info">
-										<span class="ti-bag"></span>
-										<p class="hover-text">add to bag</p>
-									</a>
-									<a href="" class="social-info">
-										<span class="lnr lnr-move"></span>
-										<p class="hover-text">view more</p>
-									</a>
-								</div>
-							</div>
-						</div>
-					</div>
-				</div>
-			</div>
-		</div>
-	</section>
-	<!-- end product Area -->
-
+	<!-- start last products -->
+<section class="owl-carousel active-product-area section_gap">
+    <!-- single product slide -->
+    <div class="single-product-slider">
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-lg-6 text-center">
+                    <div class="section-title">
+                        <h1>Latest Products</h1>
+                        <p>Be the first to discover the latest products from our store. Don't miss the opportunity.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <!-- single product -->
+                @foreach($latestProducts as $product)
+                <div class="col-lg-3 col-md-6">
+                    <div class="single-product">
+					<img class="img-fluid" src="{{ asset($product->picture) }}" alt="{{ $product->title_product }}" style="width: 255px; height: 270px; object-fit: cover;">
+                        <div class="product-details">
+                            <h6>{{ $product->title_product }}</h6>
+                            <div class="price">
+                                <h6>${{ $product->price_product }}</h6>
+                            </div>
+                            <div class="prd-bottom">
+                                <a href="{{ route('cart.add', $product->id) }}" class="social-info">
+                                    <span class="ti-bag"></span>
+                                    <p class="hover-text">add to bag</p>
+                                </a>
+                                <a href="{{ route('product.show', $product->id) }}" class="social-info">
+                                    <span class="lnr lnr-move"></span>
+                                    <p class="hover-text">view more</p>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                @endforeach
+            </div>
+        </div>
+    </div>
+</section>
+<!-- end last products -->
 
 @endsection
 
