@@ -18,11 +18,13 @@ class AppServiceProvider extends ServiceProvider
 
     /**
      * Bootstrap any application services.
-     *
-     * @return void
      */
     public function boot()
     {
+        view()->composer('base', function ($view) {
+            $view->with('categories', Category::all());
+        });
+
         if (env('APP_ENV') !== 'local') {
             URL::forceScheme('https');
         }
