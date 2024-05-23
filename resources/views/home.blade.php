@@ -1,17 +1,18 @@
 @extends('base')
 
 @push('custom_css')
-	<link rel="stylesheet" href="{{ asset('css/linearicons.css') }}">
-	<link rel="stylesheet" href="{{ asset('css/font-awesome.min.css') }}">
-	<link rel="stylesheet" href="{{ asset('css/themify-icons.css') }}">
-	<link rel="stylesheet" href="{{ asset('css/bootstrap.css') }}">
-	<link rel="stylesheet" href="{{ asset('css/owl.carousel.css') }}">
-	<link rel="stylesheet" href="{{ asset('css/nice-select.css') }}">
-	<link rel="stylesheet" href="{{ asset('css/nouislider.min.css') }}">
-	<link rel="stylesheet" href="{{ asset('css/ion.rangeSlider.css') }}" />
-	<link rel="stylesheet" href="{{ asset('css/ion.rangeSlider.skinFlat.css') }}" />
-	<link rel="stylesheet" href="{{ asset('css/magnific-popup.css') }}">
-	<link rel="stylesheet" href="{{ asset('css/main.css') }}">
+<link rel="stylesheet" href="{{ secure_asset('css/linearicons.css') }}">
+<link rel="stylesheet" href="{{ secure_asset('css/font-awesome.min.css') }}">
+<link rel="stylesheet" href="{{ secure_asset('css/themify-icons.css') }}">
+<link rel="stylesheet" href="{{ secure_asset('css/bootstrap.css') }}">
+<link rel="stylesheet" href="{{ secure_asset('css/owl.carousel.css') }}">
+<link rel="stylesheet" href="{{ secure_asset('css/nice-select.css') }}">
+<link rel="stylesheet" href="{{ secure_asset('css/nouislider.min.css') }}">
+<link rel="stylesheet" href="{{ secure_asset('css/ion.rangeSlider.css') }}" />
+<link rel="stylesheet" href="{{ secure_asset('css/ion.rangeSlider.skinFlat.css') }}" />
+<link rel="stylesheet" href="{{ secure_asset('css/magnific-popup.css') }}">
+<link rel="stylesheet" href="{{ secure_asset('css/main.css') }}">
+
 	<!-- for emoji in title -->
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css">
 @endpush
