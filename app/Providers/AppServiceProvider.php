@@ -4,8 +4,6 @@ namespace App\Providers;
 
 use Illuminate\Support\ServiceProvider;
 use App\Models\Category;
-use Illuminate\Support\Facades\URL;
-
 class AppServiceProvider extends ServiceProvider
 {
     /**
@@ -24,9 +22,5 @@ class AppServiceProvider extends ServiceProvider
         view()->composer('base', function ($view) {
             $view->with('categories', Category::all());
         });
-
-        if (env('APP_ENV') !== 'local') {
-            URL::forceScheme('https');
-        }
     }
 }
