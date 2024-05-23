@@ -32,7 +32,7 @@
 					<!-- Brand and toggle get grouped for better mobile display -->
 					<a class="navbar-brand logo_h" href="{{ route('home') }}"
 						style="color: orange; font-weight: bold; text-decoration: none; font-size: 30px; display: flex; align-items: center;">
-						Smile Shop <i class="fas fa-arrow-right" style="margin-left: 5px;"></i>
+						Smilee Shop 
 					</a>
 					<button class="navbar-toggler" type="button" data-toggle="collapse"
 						data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
