@@ -15,7 +15,7 @@
 	<!-- meta character set -->
 	<meta charset="UTF-8">
 	<!-- Site Title -->
-	<title>Karma Shop</title>
+	<title>Smile Shop</title>
 
 	<!-- CSS -->
 	@stack('custom_css')
@@ -32,7 +32,7 @@
 					<!-- Brand and toggle get grouped for better mobile display -->
 					<a class="navbar-brand logo_h" href="{{ route('home') }}"
 						style="color: orange; font-weight: bold; text-decoration: none; font-size: 30px; display: flex; align-items: center;">
-						Smilee Shopp 
+						Smile Shop
 					</a>
 					<button class="navbar-toggler" type="button" data-toggle="collapse"
 						data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
