@@ -13,6 +13,7 @@
 <link rel="stylesheet" href="{{ asset('css/main.css') }}">
 <!-- for emoji in title -->
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css">
+
 @endpush
 
 
@@ -118,7 +119,7 @@
                             </tr>
                             <tr>
                                 <td>
-                                    <h5>release_date</h5>
+                                    <h5>release date</h5>
                                 </td>
                                 <td>
                                     <h5>{{ $product->created_at}}</h5>

@@ -58,8 +58,6 @@ class CheckoutController extends Controller
         // Vider le panier après la création de la commande
         Cart::where('user_id', Auth::id())->delete();
 
-        // Redirection vers une page de confirmation de commande
-
         // Redirection vers la page de confirmation avec l'ID de la commande
         return redirect()->route('checkout.confirm', ['order' => $order->id]);
     }

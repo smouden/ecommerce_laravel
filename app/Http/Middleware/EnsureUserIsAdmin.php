@@ -19,6 +19,6 @@ class EnsureUserIsAdmin
             return $next($request);
         }
 
-        return redirect('/home'); // Rediriger l'utilisateur non-admin vers la page d'accueil.
+        return redirect('/'); // Rediriger l'utilisateur non-admin vers la page d'accueil.
     }
 }

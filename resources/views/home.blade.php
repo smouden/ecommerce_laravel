@@ -26,11 +26,6 @@
 		<div class="breadcrumb-banner">
 			<div class="col-first">
 				<h1>Welcome to Our Storee</h1>
-				<nav>
-					<a href="shop.html"
-						style="padding: 10px 20px; background-color: #ff7f50; color: white; text-decoration: none; border-radius: 5px; font-weight: bold; font-size: 16px;">Start
-						Shopping</a>
-				</nav>
 			</div>
 		</div>
 	</div>

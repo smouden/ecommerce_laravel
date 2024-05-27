@@ -3,7 +3,7 @@
         <div class="col-md-12">
             <div class="card">
                 <div class="card-header">
-                    Information de Profil
+                    Profile Information
                 </div>
                 <div class="card-body">
                     <form method="post" action="{{ route('profile.update') }}">
@@ -12,8 +12,9 @@
 
                         <!-- Name -->
                         <div class="form-group">
-                            <label for="name">Nom</label>
-                            <input type="text" class="form-control" id="name" name="name" placeholder="Entrez votre nom" value="{{ old('name', $user->name) }}" required autofocus autocomplete="name">
+                            <label for="name">Name</label>
+                            <input type="text" class="form-control" id="name" name="name" placeholder="Entrez votre nom"
+                                value="{{ old('name', $user->name) }}" required autofocus autocomplete="name">
                             @error('name')
                                 <span class="text-danger">{{ $message }}</span>
                             @enderror
@@ -22,14 +23,16 @@
                         <!-- Email -->
                         <div class="form-group">
                             <label for="email">Email</label>
-                            <input type="email" class="form-control" id="email" name="email" placeholder="Entrez votre email" value="{{ old('email', $user->email) }}" required autocomplete="username">
+                            <input type="email" class="form-control" id="email" name="email"
+                                placeholder="Entrez votre email" value="{{ old('email', $user->email) }}" required
+                                autocomplete="username">
                             @error('email')
                                 <span class="text-danger">{{ $message }}</span>
                             @enderror
                         </div>
 
                         <!-- Save Button -->
-                        <button type="submit" class="btn btn-primary">Enregistrer</button>
+                        <button type="submit" class="btn btn-primary">Save</button>
                     </form>
                 </div>
             </div>

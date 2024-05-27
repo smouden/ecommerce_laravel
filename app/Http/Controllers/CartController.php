@@ -14,23 +14,44 @@ class CartController extends Controller
     {
         // Récupère le produit depuis la base de données
         $product = Product::findOrFail($productId);
-    
-        // Crée un nouveau panier
-        $cart = new Cart();
-        $cart->user_id = Auth::id(); // L'ID de l'utilisateur connecté
-        $cart->product_id = $productId; // L'ID du produit
-        $cart->quantity_product_cart = 1; // La quantité par défaut est 1
-    
-        // Calcule le total_price_product en utilisant le prix du produit
-        $cart->total_price_product = $product->price_product * $cart->quantity_product_cart;
-    
-        // Sauvegarde l'objet Cart dans la base de données
-        $cart->save();
-    
+
+        // Récupère le panier de l'utilisateur pour ce produit
+        $existingCartItem = Cart::where('user_id', Auth::id())
+            ->where('product_id', $productId)
+            ->first();
+
+        if ($existingCartItem) {
+            // Si le produit est déjà dans le panier, incrémente la quantité
+            $existingCartItem->quantity_product_cart += 1;
+            $existingCartItem->total_price_product = $product->price_product * $existingCartItem->quantity_product_cart;
+            $existingCartItem->save();
+        } else {
+            // Si le produit n'est pas dans le panier, crée une nouvelle entrée
+            $cart = new Cart();
+            $cart->user_id = Auth::id(); // L'ID de l'utilisateur connecté
+            $cart->product_id = $productId; // L'ID du produit
+            $cart->quantity_product_cart = 1; // La quantité par défaut est 1
+            $cart->total_price_product = $product->price_product * $cart->quantity_product_cart;
+            $cart->save();
+        }
+
         // Redirige l'utilisateur avec un message de succès
         return redirect()->back()->with('success', 'Product added to cart!');
     }
 
+    public function removeFromCart($cartId)
+    {
+        // Trouve l'article du panier par son ID et s'assure qu'il appartient à l'utilisateur connecté
+        $cartItem = Cart::where('id', $cartId)
+            ->where('user_id', Auth::id())
+            ->firstOrFail();
+
+        // Supprime l'article du panier
+        $cartItem->delete();
+
+        // Redirige l'utilisateur avec un message de succès
+        return redirect()->back()->with('success', 'Product removed from cart!');
+    }
 
 
     public function showCart()
@@ -41,7 +62,6 @@ class CartController extends Controller
 
         return view('cart', ['carts' => $carts, 'shoppingCartTotal' => $shoppingCartTotal]);
     }
-
 
 
 

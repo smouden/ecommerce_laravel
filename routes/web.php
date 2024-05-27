@@ -17,7 +17,6 @@ use App\Http\Controllers\ShowProducts;
 
 
 
-
 Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
@@ -38,6 +37,12 @@ Route::get('/confirmation/{order}', [CheckoutController::class, 'confirm'])->nam
 Route::get('/add-to-cart/{productId}', [CartController::class, 'addToCart'])->name('cart.add');
 Route::get('/cart', [CartController::class, 'showCart'])->name('cart')->middleware('auth');
 Route::post('/update-cart', [CartController::class, 'updateCart'])->name('cart.update');
+Route::delete('/cart/{id}', [CartController::class, 'removeFromCart'])->name('cart.remove');
+
+
+
+
+
 Route::get('/historic', [HistoricController::class, 'index'])->name('historic')->middleware('auth');
 
 Route::middleware(['admin'])->prefix('admin')->group(function () {

@@ -11,7 +11,7 @@
                     <dt class="col-sm-4">ID :</dt>
                     <dd class="col-sm-8">{{ $category->id }}</dd>
                     
-                    <dt class="col-sm-4">Nom :</dt>
+                    <dt class="col-sm-4">Name:</dt>
                     <dd class="col-sm-8">{{ $category->name_category }}</dd> <!-- Remplacez 'name_category' par le nom réel de l'attribut si différent -->
                 </dl>
                 <a href="{{ route('categories.index') }}" class="btn btn-primary">Back To categories </a>
