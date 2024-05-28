@@ -44,7 +44,7 @@
                 <div class="col-lg-6">
                     <div class="login_form_inner">
                         <h3>Register</h3>
-                        <form method="POST" action="{{ route('register') }}" class="row login_form" id="contactForm"
+                        <form method="POST" action="{{ secure_url('register') }}" class="row login_form" id="contactForm"
                             novalidate="novalidate">
                             @csrf
 
