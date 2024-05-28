@@ -48,7 +48,7 @@
 			<div class="col-lg-6">
 				<div class="login_form_inner">
 					<h3>Log in to enter</h3>
-					<form class="row login_form" method="POST" action="{{ secure_url('login') }}" id="contactForm"
+					<form class="row login_form" method="POST" action="{{ route('login') }}" id="contactForm"
 						novalidate="novalidate">
 						@csrf
 						<div class="col-md-12 form-group">
@@ -56,7 +56,7 @@
 							@auth
 								<div class="alert alert-info">
 									You're connected as "{{ Auth::user()->email }}".
-									<a href="{{ route('logout') }}"
+									<a href="{{ secure_url('logout') }}"
 										onclick="event.preventDefault(); document.getElementById('logout-form').submit();">Déconnexion</a>
 								</div>
 							@endauth
