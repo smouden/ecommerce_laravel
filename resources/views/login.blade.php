@@ -56,7 +56,7 @@
 							@auth
 								<div class="alert alert-info">
 									You're connected as "{{ Auth::user()->email }}".
-									<a href="{{ secure_url('logout') }}"
+									<a href="{{ route('logout') }}"
 										onclick="event.preventDefault(); document.getElementById('logout-form').submit();">Déconnexion</a>
 								</div>
 							@endauth
@@ -89,7 +89,7 @@
 							@endif
 						</div>
 					</form>
-					<form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+					<form id="logout-form" action="{{ secure_url('logout') }}" method="POST" style="display: none;">
 						@csrf
 					</form>
 				</div>
