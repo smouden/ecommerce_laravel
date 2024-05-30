@@ -8,7 +8,7 @@
                 <div class="card-body">
                     <form method="POST" action="{{ secure_url('/profile') }}">
                         @csrf
-                        @method('put')
+                        @method('patch')
 
                         <!-- Mot de passe actuel -->
                         <div class="form-group">
