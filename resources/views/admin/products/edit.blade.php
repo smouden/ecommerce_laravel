@@ -7,7 +7,7 @@
         <div class="col-sm-12 col-md-8 col-lg-6">
             <div class="bg-secondary rounded h-100 p-4">
                 <h6 class="mb-4">Edit Product</h6>
-                <form action="{{ secure_url('/admin/products/update', $product->id) }}" method="POST">
+                <form action="{{ secure_url('/admin/products/update/', $product->id) }}" method="POST">
                     @csrf
                     @method('PUT') <!-- Important for the update -->
                     <div class="mb-3">
