@@ -32,7 +32,7 @@
                         </div>
 
                         <!-- Bouton Enregistrer -->
-                        <button type="submit" class="btn btn-primary">Enregistrer</button>
+                        <button type="submit" class="btn btn-primary">Save</button>
                     </form>
                 </div>
             </div>
