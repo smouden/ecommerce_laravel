@@ -2,8 +2,8 @@
 
 @push('custom_css')
 	<!--
-					CSS
-					============================================= -->
+						CSS
+						============================================= -->
 	<link rel="stylesheet" href="{{ secure_asset('css/linearicons.css') }}">
 	<link rel="stylesheet" href="{{ secure_asset('css/owl.carousel.css') }}">
 	<link rel="stylesheet" href="{{ secure_asset('css/themify-icons.css') }}">
@@ -82,14 +82,16 @@
 								<label for="f-option2">Keep me logged in</label>
 							</div>
 						</div>
-						{{--
+
 						<div class="col-md-12 form-group">
 							<button type="submit" class="primary-btn">Log In</button>
+							{{--
 							@if (Route::has('password.request'))
 							<a class="text-danger" href="{{ route('password.request') }}">Forgot Password?</a>
 							@endif
+							--}}
 						</div>
-						--}}
+
 
 					</form>
 					<form id="logout-form" action="{{ secure_url('logout') }}" method="POST" style="display: none;">
