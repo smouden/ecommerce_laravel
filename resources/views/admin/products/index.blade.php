@@ -7,7 +7,7 @@
     <div class="row g-4">
         <div class="col-12">
             <div class="d-flex justify-content-end mb-4">
-                <a href="{{ route('products.create') }}" class="btn btn-danger">Add product</a>
+                <a href="{{ secure_url('products.create') }}" class="btn btn-danger">Add product</a>
             </div>
             <div class="bg-secondary rounded p-4 mt-3">
                 <h6 class="mb-4">products Table</h6>
