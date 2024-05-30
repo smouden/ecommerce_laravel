@@ -1,20 +1,19 @@
 @extends('admin.base')
 
-
 @section('content')
 <!-- Table Start -->
 <div class="container-fluid pt-4 px-4">
     <div class="row g-4">
         <div class="col-12">
             <div class="bg-secondary rounded p-4 mt-3">
-                <h6 class="mb-4">orders Table</h6>
+                <h6 class="mb-4">Orders Table</h6>
                 <table class="table table-dark">
                     <thead>
                         <tr>
                             <th scope="col">ID</th>
-                            <th scope="col">firstname</th>
-                            <th scope="col">lastname</th>
-                            <th scope="col">order status </th>
+                            <th scope="col">Firstname</th>
+                            <th scope="col">Lastname</th>
+                            <th scope="col">Order Status</th>
                             <th scope="col" class="text-end">Actions</th>
                         </tr>
                     </thead>
@@ -36,10 +35,9 @@
                                 @endif
                             </td>
                             <td class="text-end">
-                                <a href="{{ secure_url('/admin/orders/show', $order->id) }}" class="btn btn-primary btn-sm">Show</a>
-                                <a href="{{ secure_url('/admin/orders/edit', $order->id) }}" class="btn btn-warning btn-sm">Edit</a>
-                                <form action="{{ secure_url('/admin/orders/destroy', $order->id) }}" method="POST"
-                                    style="display: inline;">
+                                <a href="{{ url('/admin/orders/' . $order->id) }}" class="btn btn-primary btn-sm">Show</a>
+                                <a href="{{ url('/admin/orders/' . $order->id . '/edit') }}" class="btn btn-warning btn-sm">Edit</a>
+                                <form action="{{ url('/admin/orders/' . $order->id) }}" method="POST" style="display: inline;">
                                     @csrf
                                     @method('DELETE')
                                     <button type="submit" class="btn btn-danger btn-sm">Delete</button>
