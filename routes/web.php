@@ -48,7 +48,7 @@ Route::delete('/cart/{id}', [CartController::class, 'removeFromCart'])->name('ca
 Route::get('/historic', [HistoricController::class, 'index'])->name('historic')->middleware('auth');
 
 Route::middleware(['admin'])->prefix('admin')->group(function () {
-    Route::get('/', [DashboardController::class, 'index'])->name('dashboard');
+  
     Route::resource('categories', CategoryController::class);
     Route::resource('brands', BrandController::class);
     Route::resource('products', ProductController::class);

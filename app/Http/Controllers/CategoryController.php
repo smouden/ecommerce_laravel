@@ -37,7 +37,7 @@ class CategoryController extends Controller
 
         // Création de la nouvelle catégorie
         $category = new Category;
-        $category->name_category = $validatedData['name_category']; // Assurez-vous que la colonne dans la base de données s'appelle 'name'
+        $category->name_category = $validatedData['name_category']; // Assurez-vous que la colonne dans la base de données s'appelle 'name_category'
         $category->save(); // Sauvegarde de la catégorie dans la base de données
 
         // Redirection vers la liste des catégories avec un message de succès
