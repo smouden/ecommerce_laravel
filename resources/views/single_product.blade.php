@@ -1,18 +1,18 @@
 @extends('base')
 
 @push('custom_css')
-<link rel="stylesheet" href="{{ secure_asset('css/linearicons.css') }}">
-<link rel="stylesheet" href="{{ secure_asset('css/font-awesome.min.css') }}">
-<link rel="stylesheet" href="{{ secure_asset('css/themify-icons.css') }}">
-<link rel="stylesheet" href="{{ secure_asset('css/bootstrap.css') }}">
-<link rel="stylesheet" href="{{ secure_asset('css/owl.carousel.css') }}">
-<link rel="stylesheet" href="{{ secure_asset('css/nice-select.css') }}">
-<link rel="stylesheet" href="{{ secure_asset('css/nouislider.min.css') }}">
-<link rel="stylesheet" href="{{ secure_asset('css/ion.rangeSlider.css') }}">
-<link rel="stylesheet" href="{{ secure_asset('css/ion.rangeSlider.skinFlat.css') }}">
-<link rel="stylesheet" href="{{ secure_asset('css/main.css') }}">
-<!-- for emoji in title -->
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css">
+    <link rel="stylesheet" href="{{ secure_asset('css/linearicons.css') }}">
+    <link rel="stylesheet" href="{{ secure_asset('css/font-awesome.min.css') }}">
+    <link rel="stylesheet" href="{{ secure_asset('css/themify-icons.css') }}">
+    <link rel="stylesheet" href="{{ secure_asset('css/bootstrap.css') }}">
+    <link rel="stylesheet" href="{{ secure_asset('css/owl.carousel.css') }}">
+    <link rel="stylesheet" href="{{ secure_asset('css/nice-select.css') }}">
+    <link rel="stylesheet" href="{{ secure_asset('css/nouislider.min.css') }}">
+    <link rel="stylesheet" href="{{ secure_asset('css/ion.rangeSlider.css') }}">
+    <link rel="stylesheet" href="{{ secure_asset('css/ion.rangeSlider.skinFlat.css') }}">
+    <link rel="stylesheet" href="{{ secure_asset('css/main.css') }}">
+    <!-- for emoji in title -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css">
 
 @endpush
 
@@ -56,7 +56,7 @@
                     </ul>
                     <p>{{ $product->description_product }}</p> <!-- Description du produit -->
                     <div class="card_area d-flex align-items-center">
-                        <a class="primary-btn"  href="{{ route('cart.add', $product->id) }}">Add to Cart</a>
+                        <a class="primary-btn" href="{{ route('cart.add', $product->id) }}">Add to Cart</a>
                     </div>
                 </div>
             </div>
@@ -86,7 +86,7 @@
         <div class="tab-content" id="myTabContent">
             <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
                 <p>
-                {{ $product->text_product }}
+                    {{ $product->text_product }}
                 </p>
             </div>
             <div class="tab-pane fade" id="profile" role="tabpanel" aria-labelledby="profile-tab">
@@ -109,14 +109,17 @@
                                     <h5>{{ $product->size_product }}</h5>
                                 </td>
                             </tr>
-                            <tr>
-                                <td>
-                                    <h5>gender product</h5>
-                                </td>
-                                <td>
-                                    <h5>{{ $product->gender}}</h5>
-                                </td>
-                            </tr>
+                            <td>
+                                @if($product->gender == 1)
+                                    Man
+                                @elseif($product->gender == 2)
+                                    Female
+                                @elseif($product->gender == 3)
+                                    Both
+                                @else
+                                    Unknown
+                                @endif
+                            </td>
                             <tr>
                                 <td>
                                     <h5>release date</h5>
@@ -155,20 +158,20 @@
 
 @push('custom_js')
 
-<script src="{{ secure_asset('js/vendor/jquery-2.2.4.min.js') }}"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.11.0/umd/popper.min.js"
-    integrity="sha384-b/U6ypiBEHpOf/4+1nzFpr53nxSS+GLCkfwBdFNTxtclqqenISfwAzpKaMNFNmj4"
-    crossorigin="anonymous"></script>
-<script src="{{ secure_asset('js/vendor/bootstrap.min.js') }}"></script>
-<script src="{{ secure_asset('js/jquery.ajaxchimp.min.js') }}"></script>
-<script src="{{ secure_asset('js/jquery.nice-select.min.js') }}"></script>
-<script src="{{ secure_asset('js/jquery.sticky.js') }}"></script>
-<script src="{{ secure_asset('js/nouislider.min.js') }}"></script>
-<script src="{{ secure_asset('js/jquery.magnific-popup.min.js') }}"></script>
-<script src="{{ secure_asset('js/owl.carousel.min.js') }}"></script>
-<!--gmaps Js-->
-<script src="https://maps.googleapis.com/maps/api/js?key=YOUR_API_KEY"></script>
-<script src="{{ secure_asset('js/gmaps.min.js') }}"></script>
-<script src="{{ secure_asset('js/main.js') }}"></script>
+    <script src="{{ secure_asset('js/vendor/jquery-2.2.4.min.js') }}"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.11.0/umd/popper.min.js"
+        integrity="sha384-b/U6ypiBEHpOf/4+1nzFpr53nxSS+GLCkfwBdFNTxtclqqenISfwAzpKaMNFNmj4"
+        crossorigin="anonymous"></script>
+    <script src="{{ secure_asset('js/vendor/bootstrap.min.js') }}"></script>
+    <script src="{{ secure_asset('js/jquery.ajaxchimp.min.js') }}"></script>
+    <script src="{{ secure_asset('js/jquery.nice-select.min.js') }}"></script>
+    <script src="{{ secure_asset('js/jquery.sticky.js') }}"></script>
+    <script src="{{ secure_asset('js/nouislider.min.js') }}"></script>
+    <script src="{{ secure_asset('js/jquery.magnific-popup.min.js') }}"></script>
+    <script src="{{ secure_asset('js/owl.carousel.min.js') }}"></script>
+    <!--gmaps Js-->
+    <script src="https://maps.googleapis.com/maps/api/js?key=YOUR_API_KEY"></script>
+    <script src="{{ secure_asset('js/gmaps.min.js') }}"></script>
+    <script src="{{ secure_asset('js/main.js') }}"></script>
 
 @endpush
