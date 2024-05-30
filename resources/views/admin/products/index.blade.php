@@ -34,11 +34,11 @@
                                     style="width: 100px !important; height: 60px !important;">
                             </td>
                             <td class="text-end">
-                                <a href="{{ route('products.show', $product->id) }}"
+                                <a href="{{ secure_url('products.show', $product->id) }}"
                                     class="btn btn-primary btn-sm">Show</a>
-                                <a href="{{ route('products.edit', $product->id) }}"
+                                <a href="{{ secure_url('products.edit', $product->id) }}"
                                     class="btn btn-warning btn-sm">Edit</a>
-                                <form action="{{ route('products.destroy', $product->id) }}" method="POST"
+                                <form action="{{ secure_url('products.destroy', $product->id) }}" method="POST"
                                     style="display: inline;">
                                     @csrf
                                     @method('DELETE')

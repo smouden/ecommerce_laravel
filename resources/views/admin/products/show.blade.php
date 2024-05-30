@@ -53,7 +53,7 @@
                     <dt class="col-sm-4">Additional Text:</dt>
                     <dd class="col-sm-8">{{ $product->text_product }}</dd>
                 </dl>
-                <a href="{{ route('products.index') }}" class="btn btn-primary">Back to Products</a>
+                <a href="{{ secure_url('products.index') }}" class="btn btn-primary">Back to Products</a>
             </div>
         </div>
     </div>
