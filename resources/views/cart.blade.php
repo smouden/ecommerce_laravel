@@ -79,7 +79,7 @@
                                     <h5>${{ number_format($cart->total_price_product, 2) }}</h5>
                                 </td>
                                 <td>
-                                    <form method="POST" action="{{ secure_url('/cart/', $cart->id) }}">
+                                    <form method="POST" action="{{ secure_url('/cart', $cart->id) }}">
                                         @csrf
                                         @method('DELETE')
                                         <button type="submit" class="btn btn-danger">
