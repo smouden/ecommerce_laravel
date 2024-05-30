@@ -12,7 +12,6 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css">
 @endpush
 
-
 @section('content')
 
 <!-- Start Banner Area -->
@@ -110,8 +109,12 @@
                         <td></td>
                         <td>
                             <div class="checkout_btn_inner d-flex align-items-center">
-                                <a class="gray_btn" href="#">Continue Shopping</a>
-                                <a class="primary-btn" href="{{ route('checkout') }}">Proceed to checkout</a>
+                                <a class="gray_btn" href="/">Continue Shopping</a>
+                                @if ($carts->count() > 0)
+                                    <a class="primary-btn" href="{{ route('checkout') }}">Proceed to checkout</a>
+                                @else
+                                    <a class="primary-btn" href="#" onclick="event.preventDefault(); alert('Your cart is empty!');">Proceed to checkout</a>
+                                @endif
                             </div>
                         </td>
                     </tr>
