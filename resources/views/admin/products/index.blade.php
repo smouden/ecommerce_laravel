@@ -37,7 +37,7 @@
                                     class="btn btn-primary btn-sm">Show</a>
                                 <a href="{{ url('/admin/products/' . $product->id . '/edit') }}"
                                     class="btn btn-warning btn-sm">Edit</a>
-                                <form action="{{ url('/admin/products/' . $product->id) }}" method="POST"
+                                <form action="{{ secure_url('/admin/products/' . $product->id) }}" method="POST"
                                     style="display: inline;">
                                     @csrf
                                     @method('DELETE')
