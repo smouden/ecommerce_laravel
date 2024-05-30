@@ -109,17 +109,22 @@
                                     <h5>{{ $product->size_product }}</h5>
                                 </td>
                             </tr>
-                            <td>
-                                @if($product->gender == 1)
-                                    Man
-                                @elseif($product->gender == 2)
-                                    Female
-                                @elseif($product->gender == 3)
-                                    Both
-                                @else
-                                    Unknown
-                                @endif
-                            </td>
+                            <tr>
+                                <td>
+                                    <h5>gender product</h5>
+                                </td>
+                                <td>
+                                    @if($product->gender == 1)
+                                        Man
+                                    @elseif($product->gender == 2)
+                                        Female
+                                    @elseif($product->gender == 3)
+                                        Both
+                                    @else
+                                        Unknown
+                                    @endif
+                                </td>
+                            </tr>
                             <tr>
                                 <td>
                                     <h5>release date</h5>
