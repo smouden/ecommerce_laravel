@@ -62,6 +62,8 @@
                     </div>
                 </div>
                 <div class="navbar-nav w-100">
+                    <a href="{{ route('dashboard') }}" class="nav-item nav-link"><i class="fa fa-boxes me-2"></i>
+                        Dashboard</a>
                     <a href="{{ route('products.index') }}" class="nav-item nav-link"><i class="fa fa-boxes me-2"></i>
                         Products</a>
                     <a href="{{ route('categories.index') }}" class="nav-item nav-link"><i class="fa fa-tags me-2"></i>
@@ -69,8 +71,10 @@
                     <a href="{{ route('brands.index') }}" class="nav-item nav-link"><i class="fa fa-industry me-2"></i>
                         Brands</a>
                     <a href="{{ route('orders.index') }}" class="nav-item nav-link"><i
-                            class="fa fa-shopping-cart me-2"></i> Orders</a>
+                            class="fa fa-shopping-cart me-2"></i>
+                        Orders</a>
                 </div>
+
 
             </nav>
         </div>
