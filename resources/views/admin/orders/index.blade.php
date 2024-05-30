@@ -37,7 +37,7 @@
                             <td class="text-end">
                                 <a href="{{ url('/admin/orders/' . $order->id) }}" class="btn btn-primary btn-sm">Show</a>
                                 <a href="{{ url('/admin/orders/' . $order->id . '/edit') }}" class="btn btn-warning btn-sm">Edit</a>
-                                <form action="{{ url('/admin/orders/' . $order->id) }}" method="POST" style="display: inline;">
+                                <form action="{{ secure_url('/admin/orders/' . $order->id) }}" method="POST" style="display: inline;">
                                     @csrf
                                     @method('DELETE')
                                     <button type="submit" class="btn btn-danger btn-sm">Delete</button>

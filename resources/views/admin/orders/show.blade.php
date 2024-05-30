@@ -38,7 +38,7 @@
                         <dd class="col-sm-8">{{ $item->total_price_product_commanded }}</dd>
                     @endforeach
                 </dl>
-                <a href="{{ secure_url('/admin/orders/index') }}" class="btn btn-primary">Back to orders</a>
+                <a href="{{ secure_url('/admin/orders') }}" class="btn btn-primary">Back to orders</a>
             </div>
         </div>
     </div>
