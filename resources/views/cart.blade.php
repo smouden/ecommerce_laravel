@@ -70,7 +70,7 @@
                                     <h5>${{ number_format($cart->product->price_product, 2) }}</h5>
                                 </td>
                                 <td>
-                                    <form method="POST" action="{{ route('cart.update') }}">
+                                    <form method="POST" action="{{ secure_url('/update-cart') }}">
                                         @csrf
                                         <input type="number" name="quantities[{{ $cart->id }}]"
                                             value="{{ $cart->quantity_product_cart }}" class="input-text qty" min="1">
