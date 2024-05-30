@@ -6,7 +6,7 @@
                     Update your password
                 </div>
                 <div class="card-body">
-                    <form method="POST" action="{{ route('password.update') }}">
+                    <form method="POST" action="{{ secure_url('password.update') }}">
                         @csrf
                         @method('put')
 
