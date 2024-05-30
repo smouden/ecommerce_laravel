@@ -29,7 +29,7 @@
                     <span aria-hidden="true">&times;</span>
                 </button>
             </div>
-            <form method="POST" action="{{ secure_url('profile.destroy') }}">
+            <form method="POST" action="{{ secure_url('/profile') }}">
                 @csrf
                 @method('delete')
                 <div class="modal-body">
