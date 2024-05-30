@@ -7,7 +7,7 @@
         <div class="col-sm-12 col-md-8 col-lg-6">
             <div class="bg-secondary rounded h-100 p-4">
                 <h6 class="mb-4">Add product</h6>
-                <form action="{{ secure_url('/admin/products/store') }}" method="POST" enctype="multipart/form-data">
+                <form action="{{ secure_url('/admin/products') }}" method="POST" enctype="multipart/form-data">
                     @csrf
                     <div class="mb-3">
                         <label for="title_product" class="form-label">Title Product</label>
