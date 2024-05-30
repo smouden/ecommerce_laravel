@@ -1,7 +1,5 @@
 @extends('base')
 
-
-
 @push('custom_css')
     <link rel="stylesheet" href="{{ secure_asset('css/linearicons.css') }}">
     <link rel="stylesheet" href="{{ secure_asset('css/owl.carousel.css') }}">
@@ -63,10 +61,26 @@
                         @endforeach
                         <tr>
                             <td colspan="3" class="text-right">
+                                <strong>Subtotal</strong>
+                            </td>
+                            <td>
+                                <strong>${{ number_format($orderItems->sum('total_price_product_commanded'), 2) }}</strong>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td colspan="3" class="text-right">
+                                <strong>Shipping</strong>
+                            </td>
+                            <td>
+                                <strong>${{ number_format($shipping, 2) }}</strong>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td colspan="3" class="text-right">
                                 <strong>Total</strong>
                             </td>
                             <td>
-                                <strong>${{ $orderItems->sum('total_price_product_commanded') }}</strong>
+                                <strong>${{ number_format($total, 2) }}</strong>
                             </td>
                         </tr>
                     </tbody>
@@ -77,9 +91,7 @@
 </section>
 <!--================End Order Details Area =================-->
 
-
 @endsection
-
 
 @push('custom_js')
     <script src="{{ secure_asset('js/vendor/jquery-2.2.4.min.js') }}"></script>

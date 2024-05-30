@@ -17,7 +17,7 @@ class CheckoutController extends Controller
             return $cartItem->quantity_product_cart * $cartItem->product->price_product;
         });
 
-        // Si tu as des frais de livraison, ajoute-les au total
+        // frais de livraison
         $shipping = 50; // Par exemple, frais de livraison fixes
         $total = $subtotal + $shipping;
 
@@ -66,13 +66,21 @@ class CheckoutController extends Controller
     {
         $order = Order::findOrFail($orderId);
         $orderItems = $order->orderItems()->with('product')->get();
-
+    
+        // Calculer le total des produits commandés
+        $subtotal = $orderItems->sum('total_price_product_commanded');
+        
+        // Ajouter les frais de livraison
+        $shipping = 50; // Par exemple, frais de livraison fixes
+        $total = $subtotal + $shipping;
+    
         return view('confirmation', [
             'order' => $order,
-            'orderItems' => $orderItems
+            'orderItems' => $orderItems,
+            'shipping' => $shipping,
+            'total' => $total
         ]);
     }
-
-
+    
 
 }
