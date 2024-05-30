@@ -6,7 +6,7 @@
                     Informations sur le profil
                 </div>
                 <div class="card-body">
-                    <form method="post" action="{{ secure_url('/') }}">
+                    <form method="post" action="{{ route('profile.update') }}">
                         @csrf
                         @method('patch')
 

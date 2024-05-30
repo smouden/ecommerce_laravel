@@ -6,7 +6,7 @@
                     Mettre à jour votre mot de passe
                 </div>
                 <div class="card-body">
-                    <form method="POST" action="{{ secure_url('/') }}">
+                    <form method="POST" action="{{ route('profile.update.password') }}">
                         @csrf
                         @method('patch')
 
