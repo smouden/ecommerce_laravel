@@ -36,9 +36,9 @@
                             <td class="text-end">
                                 <a href="{{ secure_url('/admin/products.show', $product->id) }}"
                                     class="btn btn-primary btn-sm">Show</a>
-                                <a href="{{ secure_url('/admin/products.edit', $product->id) }}"
+                                <a href="{{ secure_url('/admin/products/edit', $product->id) }}"
                                     class="btn btn-warning btn-sm">Edit</a>
-                                <form action="{{ secure_url('/admin/products.destroy', $product->id) }}" method="POST"
+                                <form action="{{ secure_url('/admin/products/destroy', $product->id) }}" method="POST"
                                     style="display: inline;">
                                     @csrf
                                     @method('DELETE')

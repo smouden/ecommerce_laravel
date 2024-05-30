@@ -23,7 +23,8 @@
 
     <!-- Libraries Stylesheet -->
     <link href="{{ secure_asset('public_admin/lib/owlcarousel/assets/owl.carousel.min.css') }}" rel="stylesheet">
-    <link href="{{ secure_asset('public_admin/lib/tempusdominus/css/tempusdominus-bootstrap-4.min.css') }}" rel="stylesheet" />
+    <link href="{{ secure_asset('public_admin/lib/tempusdominus/css/tempusdominus-bootstrap-4.min.css') }}"
+        rel="stylesheet" />
 
     <!-- Customized Bootstrap Stylesheet -->
     <link href="{{ secure_asset('public_admin/css/bootstrap.min.css') }}" rel="stylesheet">
