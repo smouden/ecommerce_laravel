@@ -3,16 +3,16 @@
         <div class="col-md-12">
             <div class="card">
                 <div class="card-header">
-                    Profile Information
+                    Informations sur le profil
                 </div>
                 <div class="card-body">
-                    <form method="post" action="{{ secure_url('/profile') }}">
+                    <form method="post" action="{{ secure_url('profile.update') }}">
                         @csrf
                         @method('patch')
 
                         <!-- Name -->
                         <div class="form-group">
-                            <label for="name">Name</label>
+                            <label for="name">Nom</label>
                             <input type="text" class="form-control" id="name" name="name" placeholder="Entrez votre nom"
                                 value="{{ old('name', $user->name) }}" required autofocus autocomplete="name">
                             @error('name')
@@ -31,8 +31,8 @@
                             @enderror
                         </div>
 
-                        <!-- Save Button -->
-                        <button type="submit" class="btn btn-primary">Save</button>
+                        <!-- Bouton Enregistrer -->
+                        <button type="submit" class="btn btn-primary">Enregistrer</button>
                     </form>
                 </div>
             </div>
