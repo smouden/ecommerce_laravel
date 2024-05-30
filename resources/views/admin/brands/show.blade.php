@@ -13,7 +13,7 @@
                     <dt class="col-sm-4">Name :</dt>
                     <dd class="col-sm-8">{{ $brand->name_brand }}</dd> <!-- Remplacez 'name_brand' par le nom réel de l'attribut si différent -->
                 </dl>
-                <a href="{{ route('brands.index') }}" class="btn btn-primary">Back To brands </a>
+                <a href="{{ secure_url('/admin/brands/index') }}" class="btn btn-primary">Back To brands </a>
             </div>
         </div>
     </div>

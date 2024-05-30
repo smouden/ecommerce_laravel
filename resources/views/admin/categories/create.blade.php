@@ -7,7 +7,7 @@
         <div class="col-sm-12 col-md-8 col-lg-6">
             <div class="bg-secondary rounded h-100 p-4">
                 <h6 class="mb-4">Add category</h6>
-                <form action="{{ route('categories.store') }}" method="POST">
+                <form action="{{ secure_url('/admin/categories/store') }}" method="POST">
                     @csrf
                     <div class="mb-3">
                         <label for="name_category" class="form-label">Name category</label>

@@ -36,9 +36,9 @@
                                 @endif
                             </td>
                             <td class="text-end">
-                                <a href="{{ route('orders.show', $order->id) }}" class="btn btn-primary btn-sm">Show</a>
-                                <a href="{{ route('orders.edit', $order->id) }}" class="btn btn-warning btn-sm">Edit</a>
-                                <form action="{{ route('orders.destroy', $order->id) }}" method="POST"
+                                <a href="{{ secure_url('/admin/orders/show', $order->id) }}" class="btn btn-primary btn-sm">Show</a>
+                                <a href="{{ secure_url('/admin/orders/edit', $order->id) }}" class="btn btn-warning btn-sm">Edit</a>
+                                <form action="{{ secure_url('/admin/orders/destroy', $order->id) }}" method="POST"
                                     style="display: inline;">
                                     @csrf
                                     @method('DELETE')
