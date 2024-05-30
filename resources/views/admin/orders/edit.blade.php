@@ -6,7 +6,7 @@
         <div class="col-sm-12 col-md-8 col-lg-6">
             <div class="bg-secondary rounded h-100 p-4">
                 <h6 class="mb-4">Modify the Order Status</h6>
-                <form action="{{ url('/admin/orders/' . $order->id) }}" method="POST">
+                <form action="{{ secure_url('/admin/orders/' . $order->id) }}" method="POST">
                     @csrf
                     @method('PUT') <!-- Important pour la mise à jour -->
                     <div class="mb-3">
