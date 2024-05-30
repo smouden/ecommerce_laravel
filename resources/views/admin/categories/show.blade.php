@@ -14,7 +14,7 @@
                     <dt class="col-sm-4">Name:</dt>
                     <dd class="col-sm-8">{{ $category->name_category }}</dd> <!-- Remplacez 'name_category' par le nom réel de l'attribut si différent -->
                 </dl>
-                <a href="{{ secure_url('/admin/categories/index') }}" class="btn btn-primary">Back To categories </a>
+                <a href="{{ secure_url('/admin/categories') }}" class="btn btn-primary">Back To categories </a>
             </div>
         </div>
     </div>
