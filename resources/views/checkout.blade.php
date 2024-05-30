@@ -38,7 +38,7 @@
     <div class="row">
         <!-- Order form -->
         <div class="col-lg-8">
-            <form action="{{ route('checkout.store') }}" method="post" class="needs-validation" novalidate>
+            <form action="{{ secure_url('/checkout') }}" method="post" class="needs-validation" novalidate>
                 @csrf
                 <div class="form-group">
                     <label for="first">First name</label>
