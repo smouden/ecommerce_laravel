@@ -1,22 +1,11 @@
 @extends('admin.base')
 
-
-
 @section('content')
-
-<div class="container mt-5">
-    <div class="row">
-        <div class="col-md-12">
-            <div class="card">
-                <div class="card-body">
-                    <h3 class="card-title">Welcome to the Smile Shop Admin Dashboard</h3>
-                    <p class="card-text">
-                        Manage your products, categories, brands, and orders efficiently and effectively. 
-                    </p>
-                </div>
+    <div class="d-flex justify-content-center align-items-center" style="height: 100vh;">
+        <div class="card text-center">
+            <div class="card-body text-danger">
+                <h3 class="card-title">Welcome to the Smile Shop Admin Dashboard</h3>
             </div>
         </div>
     </div>
-</div>
-
 @endsection
