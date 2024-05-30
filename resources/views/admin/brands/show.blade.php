@@ -5,15 +5,15 @@
     <div class="row d-flex justify-content-center">
         <div class="col-sm-12 col-md-8 col-lg-6">
             <div class="bg-secondary rounded h-100 p-4">
-                <h6 class="mb-4">brand details </h6>
+                <h6 class="mb-4">Brand Details</h6>
                 <dl class="row">
-                    <dt class="col-sm-4">ID :</dt>
+                    <dt class="col-sm-4">ID:</dt>
                     <dd class="col-sm-8">{{ $brand->id }}</dd>
                     
-                    <dt class="col-sm-4">Name :</dt>
+                    <dt class="col-sm-4">Name:</dt>
                     <dd class="col-sm-8">{{ $brand->name_brand }}</dd> <!-- Remplacez 'name_brand' par le nom réel de l'attribut si différent -->
                 </dl>
-                <a href="{{ secure_url('/admin/brands/index') }}" class="btn btn-primary">Back To brands </a>
+                <a href="{{ url('/admin/brands') }}" class="btn btn-primary">Back To Brands</a>
             </div>
         </div>
     </div>
