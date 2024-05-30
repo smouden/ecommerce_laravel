@@ -3,7 +3,7 @@
         <div class="col-md-12">
             <div class="card">
                 <div class="card-header">
-                    Informations sur le profil
+                    Informations about your profile
                 </div>
                 <div class="card-body">
                     <form method="post" action="{{ secure_url('/profile') }}">
@@ -12,7 +12,7 @@
 
                         <!-- Name -->
                         <div class="form-group">
-                            <label for="name">Nom</label>
+                            <label for="name">Name</label>
                             <input type="text" class="form-control" id="name" name="name" placeholder="Entrez votre nom"
                                 value="{{ old('name', $user->name) }}" required autofocus autocomplete="name">
                             @error('name')

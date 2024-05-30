@@ -3,7 +3,7 @@
         <div class="col-md-12">
             <div class="card">
                 <div class="card-header">
-                    Mettre à jour votre mot de passe
+                    Change your password
                 </div>
                 <div class="card-body">
                     <form method="POST" action="{{ secure_url('/profile/password') }}">
