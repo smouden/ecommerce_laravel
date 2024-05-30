@@ -7,7 +7,7 @@
     <div class="row g-4">
         <div class="col-12">
             <div class="d-flex justify-content-end mb-4">
-                <a href="{{ secure_url('products/create') }}" class="btn btn-danger">Add product</a>
+                <a href="{{ secure_url('/admin/products/create') }}" class="btn btn-danger">Add product</a>
             </div>
             <div class="bg-secondary rounded p-4 mt-3">
                 <h6 class="mb-4">products Table</h6>
@@ -34,11 +34,11 @@
                                     style="width: 100px !important; height: 60px !important;">
                             </td>
                             <td class="text-end">
-                                <a href="{{ secure_url('products.show', $product->id) }}"
+                                <a href="{{ secure_url('/admin/products.show', $product->id) }}"
                                     class="btn btn-primary btn-sm">Show</a>
-                                <a href="{{ secure_url('products.edit', $product->id) }}"
+                                <a href="{{ secure_url('/admin/products.edit', $product->id) }}"
                                     class="btn btn-warning btn-sm">Edit</a>
-                                <form action="{{ secure_url('products.destroy', $product->id) }}" method="POST"
+                                <form action="{{ secure_url('/admin/products.destroy', $product->id) }}" method="POST"
                                     style="display: inline;">
                                     @csrf
                                     @method('DELETE')
